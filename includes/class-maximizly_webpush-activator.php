@@ -30,7 +30,8 @@ class Maximizly_webpush_Activator {
 	 * @since    1.0.0
 	 */
 	public static function activate() {
-
+        $path = get_home_path();
+        file_put_contents($path.'/maximizly-sw.js', "importScripts('https://maximizly.s3.eu-central-1.amazonaws.com/sources/webpush/production/worker/maximizly-sw.js')");
 	}
 
 }
