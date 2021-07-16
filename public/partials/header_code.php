@@ -14,7 +14,13 @@
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
+<?php
+$maximizlyOptions = get_option( 'maximizly_webpush_options' );
+if($maximizlyOptions['enabled'] && !empty($maximizlyOptions['domain'])) {
+?>
+
 <script>
-    let maximizly = []; maximizly['webpush_domain'] = 'kisag.go2flow.dev';
+    let maximizly = []; maximizly['webpush_domain'] = '<?= $maximizlyOptions['domain'] ?>';
 </script>
 <script src="https://maximizly.s3.eu-central-1.amazonaws.com/sources/webpush/production/js/maximizly-push.js"></script>
+<?php } ?>
